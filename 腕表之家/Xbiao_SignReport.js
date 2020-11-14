@@ -1,3 +1,4 @@
+//@description:这是一个本地测试JS文件，用于同步到手机上进行LOON脚本开发。
 var CryptoJS = CryptoJS ||
 function(u, p) {
     var d = {},
@@ -736,7 +737,6 @@ CryptoJS.pad.ZeroPadding = {
         data.sigBytes = i + 1;
     }
 };
-/****************核心代码：勿动-开始*************/
 const RegexStr = /[^publicKey=].+?(?=\s|;)/;
 function DecryptRespone(Key,Iv,params)
 {
@@ -769,17 +769,10 @@ function GetSecKey(RawCookieString)
     var Key = String0 + String1;
     $persistentStore.write(Key,"SecKey");
 }
-/****************核心代码：勿动-结束*************/
 function Sign_Main()
 {
-/******************************************************************您只需要改动这里,注意：请不要复制您的PublicKEy-开始 ****************************************/
-    var UserCookies = 
-    'userid=3718082; userkey=3a67875372083bedc70e58178ecbd8dc; PHPSESSID=5nc5bfog12tdhmnosau3b6l542; BIGipServerxbiao-ios=566759178.20480.0000; publicKey='+$persistentStore.read("PublicKey")
-    /*在这里替换为您自己的Cookie*/
-/******************************************************************您只需要改动这里,注意：请不要复制您的PublicKEy-结束 ****************************************/
-
-
-/*********************************************************签到核心代码(勿动)-开始**************************************************************************************/
+    var ReplaceKeyInfo = "userid=3718082;userkey=3a67875372083bedc70e58178ecbd8dc;";/*在这里替换为您自己的Cookie信息*/
+    var UserCookies = ReplaceKeyInfo+'publicKey='+$persistentStore.read("PublicKey")
 var SignUrl = "https://ios.xbiao.com/apps/Xbiao/ios-Xbiao-7_6-iPhone8_1-750_1334/sign/today"    
 var GetParams = 
     {
@@ -815,5 +808,4 @@ var GetParams =
     })
     console.log("\n\n\n原始数据包如下(已解密)：\n\n"+$persistentStore.read("ReturnStr"))
 }
-/*********************************************************签到核心代码(勿动)-结束**************************************************************************************/
 Sign_Main()
