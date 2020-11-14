@@ -25,3 +25,4 @@ function SubCookieInfo()
 SubCookieInfo()
 //http-request表达式:^https?:\/\/ios\.xbiao\.com.+?\/set
 //MITM域名:*.xbiao.com
+:house:
