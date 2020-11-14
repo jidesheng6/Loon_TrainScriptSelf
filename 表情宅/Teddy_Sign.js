@@ -53,7 +53,7 @@ function CheckIn()
         var statusCode = ReturnJson.status;
         if(statusCode==0)
         {
-            $notification.post("表情宅-失败","今天已经签到过了,请勿重复签到","");
+            $notification.post("表情宅-失败","🧸今天已经签到过了,请勿重复签到","");
         }
         else
         {
