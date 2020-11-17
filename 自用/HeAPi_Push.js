@@ -49,6 +49,7 @@ function GetWeatherInfo()
         `🌏您的城市当前天气情况为:${Now_text}\n☁️当前温度:${Now_Tmp}${TempIcon}\n🌟体感温度:${Now_FeelTmp}${TempIcon}\n🌠风向:${Now_WindDir}风 风力${Now_WindLev}级\n💨相对湿度${Now_humidity}%`
         $notification.post("和风天气API-实况天气💥",``,NofityMessage);
         console.log("\n和风天气API调试信息:"+data);
+        console.log(SearchCity)
     })
 }
 GetWeatherInfo()
