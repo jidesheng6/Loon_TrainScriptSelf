@@ -4,15 +4,24 @@ const NowWeatherUrl = "https://devapi.qweather.com/v7/weather/now?"
 
 function GetCityLocalId(CityName)
 {
-    //CityName = escape(CityName);
+    CityName = encodeURI(CityName);
     GetQueryPar = `location=${CityName}&key=${DevApiKey}`;
     let FullUrl = SearchCityUrl + GetQueryPar;
     $httpClient.get(FullUrl,function(err,response,data)
     {
         var JsonObj = JSON.parse(data);
-        const DataTree = JsonObj;
+        const DataTree = JsonObj.location;
+        const LocationId = DataTree.id;
         const statusCode = JsonObj.code;
-        console.log(JsonObj);
+        if(statusCode!=200)
+        {
+            console.log("API出错,调试信息如下:\n"+data);
+        }
+        else
+        {
+            console.log("写入城市ID成功");
+            $persistentStore.write(LocationId,"id");
+        }
         
     })
 }
@@ -48,4 +57,4 @@ function GetWeatherInfo()
     })
    }
 }
-//GetWeatherInfo()
+GetWeatherInfo()
