@@ -16,6 +16,7 @@ function SubCookieInfo()
     {
         $notification.post("腕表之家","Cookie获取成功","");
         $$persistentStore.write(FinalCookieStr,"Xbiao_cookie");
+        console.log(FinalCookieStr);
         //console.log("\n\n\n请复制您的Cookie信息填入本地JS文件:\n\n\n"+FinalCookieStr);
     }
     else
