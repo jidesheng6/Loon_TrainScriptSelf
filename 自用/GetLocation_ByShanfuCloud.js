@@ -1,6 +1,6 @@
 function GetLocation()
 {
-    YunShanFuFlag = $request.headers["X-Tingyun-Id"];
+    var YunShanFuFlag = $request.headers["X-Tingyun-Id"];
     console.log($request.headers);
     if(typeof(YunShanFuFlag)!=undefined)
     {
@@ -9,7 +9,7 @@ function GetLocation()
     const LocationInfo = RegeoDetail.addressComponent;
     const StreetInfo = LocationInfo.streetNumber;
     const SaveStoreVar = LocationInfo.district;
-    var StreetNumber,StreetName,DetailsLocation,FinalMessage,YunShanFuFlag;
+    var StreetNumber,StreetName,DetailsLocation,FinalMessage;
     StreetNumber = StreetInfo.number;
     StreetName=StreetInfo.street;
     DetailsLocation = RegeoDetail["pois"][0].name;
