@@ -24,3 +24,4 @@ function GetLocation()
     }
 }
 GetLocation()
+//^https:\/\/restapi.amap.+
