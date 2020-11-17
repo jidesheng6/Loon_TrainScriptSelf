@@ -1,18 +1,16 @@
-//Test Env:💕 i Know.i can't continue to protect you, i just want to coding,because i want forget you,i really love you,Su.
 const DevApiKey = "4cb4f60d3a6045c48da6adbbe988b4ed";
-//😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃
 const SearchCityUrl = "https://geoapi.qweather.com/v2/city/lookup?";
 const NowWeatherUrl = "https://devapi.qweather.com/v7/weather/now?"
 
 function GetCityLocalId(CityName)
 {
-    CityName = escape(CityName);
+    //CityName = escape(CityName);
     GetQueryPar = `location=${CityName}&key=${DevApiKey}`;
     let FullUrl = SearchCityUrl + GetQueryPar;
     $httpClient.get(FullUrl,function(err,response,data)
     {
         var JsonObj = JSON.parse(data);
-        const DataTree = JsonObj.location[0];
+        const DataTree = JsonObj;
         const statusCode = JsonObj.code;
         if(statusCode==200)
         {
