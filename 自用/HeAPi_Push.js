@@ -12,15 +12,7 @@ function GetCityLocalId(CityName)
         var JsonObj = JSON.parse(data);
         const DataTree = JsonObj;
         const statusCode = JsonObj.code;
-        if(statusCode==200)
-        {
-            let LocationId = DataTree.id;
-            $persistentStore.write(LocationId,"id");
-        }
-        else
-        {
-            console.log(JsonObj);
-        }
+        console.log(JsonObj);
         
     })
 }
@@ -56,4 +48,4 @@ function GetWeatherInfo()
     })
    }
 }
-GetWeatherInfo()
+//GetWeatherInfo()
