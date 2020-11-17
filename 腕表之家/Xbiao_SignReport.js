@@ -771,10 +771,13 @@ function GetSecKey(RawCookieString)
 }
 function Sign_Main()
 {
-    var ReplaceKeyInfo = "userid=3718082;userkey=3a67875372083bedc70e58178ecbd8dc;";/*在这里替换为您自己的Cookie信息*/
-    var UserCookies = ReplaceKeyInfo+'publicKey='+$persistentStore.read("PublicKey")
-var SignUrl = "https://ios.xbiao.com/apps/Xbiao/ios-Xbiao-7_6-iPhone8_1-750_1334/sign/today"    
-var GetParams = 
+    var ReplaceKeyInfo = $persistentStore.read("Xbiao_cookie");
+    if(ReplaceKeyInfo!=undefined)
+    {
+        $notification.post("腕表之家-初始化","Cookie写入成功","成功写入的你的Cookie");
+        var UserCookies = ReplaceKeyInfo+'publicKey='+$persistentStore.read("PublicKey")
+        var SignUrl = "https://ios.xbiao.com/apps/Xbiao/ios-Xbiao-7_6-iPhone8_1-750_1334/sign/today"    
+        var GetParams = 
     {
         url:SignUrl,
         headers:
@@ -806,6 +809,11 @@ var GetParams =
             $notification.post("腕表之家-Cookie正常",MessageNotify,"")
         }
     })
-    console.log("\n\n\n原始数据包如下(已解密)：\n\n"+$persistentStore.read("ReturnStr"))
+    console.log("\n\n\n原始数据包如下(已解密)：\n\n"+$persistentStore.read("ReturnStr")) 
+    }
+    else
+    {
+        $notification.post("腕表之家-初始化失败","无法获取到您的Cookie","请联系作者");
+    }
 }
 Sign_Main()
