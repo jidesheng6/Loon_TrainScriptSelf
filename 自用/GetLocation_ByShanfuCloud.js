@@ -1,7 +1,7 @@
 function GetLocation()
 {
     var YunShanFuFlag = $request.headers["X-Tingyun-Id"];
-    console.log($request.headers);
+    console.log(YunShanFuFlag);
     if(typeof(YunShanFuFlag)!=undefined)
     {
     const CatchYunShanFuResponse = JSON.parse($response.body);
