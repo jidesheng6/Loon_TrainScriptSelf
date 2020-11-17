@@ -16,6 +16,7 @@ function GetLocation()
     FinalMessage = `您当前所在位置为${SaveStoreVar}${StreetName}${StreetNumber}${DetailsLocation}`;
     $notification.post("云闪付通知","信息获取成功",FinalMessage);
     $persistentStore.write(SaveStoreVar,"NowLocation");
+    console.log("位置信息写入成功");
     }
     else
     {
