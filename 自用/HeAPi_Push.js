@@ -29,7 +29,7 @@ function GetCityLocalId(CityName)
 
 function GetWeatherInfo()
 {
-    const SearchCity="kunshan";
+    const SearchCity="昆山";
     GetCityLocalId(SearchCity)//StoreId:id
     const LocaltionID = $persistentStore.read("id");
     const QueryPar = `location=${LocaltionID}&key=${DevApiKey}`;
