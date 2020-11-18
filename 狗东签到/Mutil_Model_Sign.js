@@ -74,7 +74,10 @@ function Daily_Sign()//狗东_签到模块_每日签到
         //一些高频重用字符串,也可以考虑加入Store
     })
     }
-    
+    else
+    {
+        $notification.post("狗东签到脚本-读取通用Cookies失败","","请重新获取Cookies");
+    }
     
 }
 Daily_Sign()
