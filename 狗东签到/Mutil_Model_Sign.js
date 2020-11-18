@@ -3,7 +3,8 @@ function Daily_Sign()//狗东_签到模块_每日签到
 
 
     const Sign_Url = "https://106.39.171.220/client.action?functionId=signBeanIndex";
-    const ReadStore_Cookie = $persistentStore.read("Gen_Cookie_Key");
+    const ReadStore_Cookie = $persistentStore.read("Gen_Cookie_Key")
+    console.log(ReadStore_Cookie);
     if(ReadStore_Cookie!=undefined)
     {
         const UserCookie = ReadStore_Cookie;
@@ -74,7 +75,6 @@ function Daily_Sign()//狗东_签到模块_每日签到
     })
     }
     
-    //暂时再USerCookie手动输入Cookie,日后会进行更新为自动获取
     
 }
 Daily_Sign()
