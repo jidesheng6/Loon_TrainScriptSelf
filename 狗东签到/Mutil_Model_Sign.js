@@ -3,20 +3,22 @@ function Daily_Sign()//狗东_签到模块_每日签到
 
 
     const Sign_Url = "https://106.39.171.220/client.action?functionId=signBeanIndex";
-    const UserCookie = `pin=%E5%B5%87%E5%BE%B7%E8%83%9C;wskey=AAJftAPVAEAA48u0jnhUC1YZ79G8kXj8-zqU_bq9te0uyLJOl2iKcogYMshxQVCp1PMwDiTD_1pbVsisuoXyXAPvv5Ua2m-D;whwswswws=wS6ckT/Wi/VvFrGlgZCexuC3KwM5gEEDDkIjxZs1xwYyd5q+Y3CFyl0GeE5tcx1RFary5YGAnmDJt9BsOPT18/w==;unionwsws={"jmafinger":"wS6ckT\/Wi\/VvFrGlgZCexuC3KwM5gEEDDkIjxZs1xwYyd5q+Y3CFyl0GeE5tcx1RFary5YGAnmDJt9BsOPT18\/w==","devicefinger":"eidI575A0115NTNBOTA0MkMtQ0EzQS00Qw==fdfF0UJFnFe+QCbKjkBoCwrUJZVzeoqo8ckjpMwhDljRK4BOBq3Uj2wFAjTsoRSMmib9wcQBet50Zwdd"} `
-    //暂时再USerCookie手动输入Cookie,日后会进行更新为自动获取
-    var Jd_Host,Jd_Content,Jd_Params,Data_Body,Data_Openudid,Data_Sign,Data_Client,Data_Version,Data_St,Data_Sv,PostData,PostHeaders
-    Jd_Host = 'api.m.jd.com';
-    Jd_Content = "application/x-www-form-urlencoded";
-    Data_Body = `body={"jda":"-1","monitor_source":"bean_app_bean_index","shshshfpb":"","fp":"-1","eid":"","shshshfp":"-1","monitor_refer":"","userAgent":"-1","rnVersion":"4.0","shshshfpa":"-1","referUrl":"-1"}`;
-    Data_Openudid = "openudid=93c7ecf5b4a0c8a41249b9a8d47b52900b8a87f9";
-    Data_Sign = "sign=1b9fa20b49b070a6f0fa9b90e0379b64";
-    Data_Client = "client=apple";
-    Data_Version = "clientVersion=9.2.2";
-    Data_St = "st=1605575394102";
-    Data_Sv="sv=101";
-    PostData = `${Data_Body}&${Data_Openudid}&${Data_Sign}&${Data_Client}&${Data_Version}&${Data_St}&${Data_Sv}`;
-    PostHeaders = 
+    const ReadStore_Cookie = $persistentStore.read("Gen_Cookie_Key");
+    if(ReadStore_Cookie!=undefined)
+    {
+        const UserCookie = ReadStore_Cookie;
+        var Jd_Host,Jd_Content,Jd_Params,Data_Body,Data_Openudid,Data_Sign,Data_Client,Data_Version,Data_St,Data_Sv,PostData,PostHeaders
+        Jd_Host = 'api.m.jd.com';
+        Jd_Content = "application/x-www-form-urlencoded";
+        Data_Body = `body={"jda":"-1","monitor_source":"bean_app_bean_index","shshshfpb":"","fp":"-1","eid":"","shshshfp":"-1","monitor_refer":"","userAgent":"-1","rnVersion":"4.0","shshshfpa":"-1","referUrl":"-1"}`;
+        Data_Openudid = "openudid=93c7ecf5b4a0c8a41249b9a8d47b52900b8a87f9";
+        Data_Sign = "sign=1b9fa20b49b070a6f0fa9b90e0379b64";
+        Data_Client = "client=apple";
+        Data_Version = "clientVersion=9.2.2";
+        Data_St = "st=1605575394102";
+        Data_Sv="sv=101";
+        PostData = `${Data_Body}&${Data_Openudid}&${Data_Sign}&${Data_Client}&${Data_Version}&${Data_St}&${Data_Sv}`;
+        PostHeaders = 
     {
         'cookie':UserCookie,
         'Host':Jd_Host,
@@ -70,5 +72,9 @@ function Daily_Sign()//狗东_签到模块_每日签到
         }
         //一些高频重用字符串,也可以考虑加入Store
     })
+    }
+    
+    //暂时再USerCookie手动输入Cookie,日后会进行更新为自动获取
+    
 }
 Daily_Sign()
