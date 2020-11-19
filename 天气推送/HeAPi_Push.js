@@ -25,7 +25,7 @@ function GetCityLocalId(CityName)
         
     })
 }
-
+console.log("死马APP喜欢搞心态是吧")
 function GetWeatherInfo()
 {
     const SearchCity=$persistentStore.read("NowLocation");
