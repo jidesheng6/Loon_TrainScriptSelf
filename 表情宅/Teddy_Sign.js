@@ -1,6 +1,6 @@
 //@description:这是一个本地测试JS文件，用于同步到手机上进行LOON脚本开发。
-const UserName = "";//表情宅账号
-const PassWord = "";//表情宅密码
+const UserName = "17601473499";//表情宅账号
+const PassWord = "Jdesheng6.";//表情宅密码
 function LoginTeddy(UserName,PassWord)
 {
     const LoginUrl = "https://dou.imd.im/api/login";
@@ -29,11 +29,10 @@ function LoginTeddy(UserName,PassWord)
             $persistentStore.write(UserId,"Id");
             $persistentStore.write(CoinCount,"coin");
             console.log("\n\n表情宅调试信息:写入Token和Id信息成功");
-            $notification.post("表情宅-登陆登陆成功","","昵称:"+NickName+"\n金币:"+CoinCount);
+            $notification.post("表情宅-登陆","登陆成功","昵称:"+NickName+"\n金币:"+CoinCount);
         }
     })
 }
-LoginTeddy(UserName,PassWord);
 function CheckIn()
 {
     const CheckInUrl = "https://dou.imd.im/api/checkin";
@@ -49,20 +48,23 @@ function CheckIn()
     }
     $httpClient.post(SendDataPar,function(error,response,data)
     {
-        let ReturnJson = JSON.parse(data);
+        var ReturnJson = JSON.parse(data);
         var statusCode = ReturnJson.status;
         if(statusCode==0)
         {
             $notification.post("表情宅-失败","🧸今天已经签到过了,请勿重复签到","");
         }
-        else
+        else if(statusCode==1)
         {
-            var CheckInSuccessData = ReturnObj.data;
-            var CheckInCoinCount = CheckInSuccessData.count + $persistentStore.read("coin");
-            $notification.post("表情宅-成功","签到完成:\n当前金币数量:"+CheckInCoinCount);
+            $notification.post("表情宅-签到成功",`签到成功`,`结存金币undefine个`);
         }
+        //console.log(ReturnJson)
         console.log("\n\n表情宅原始信息调试:\n\n"+data);
     })
 }
-setTimeout(CheckIn,1300)//太快了不太好，你们会觉得我的程序根本没在运行什么
-//tips：不做定时通知顺序会乱
+async function Tasks()
+{
+    LoginTeddy(UserName,PassWord);
+    await CheckIn();
+}
+Tasks();
