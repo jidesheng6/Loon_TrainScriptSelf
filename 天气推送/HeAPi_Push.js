@@ -43,6 +43,7 @@ function GetWeatherInfo()
         {
             let JsonReturn = JSON.parse(data);
             const NowJson = JsonReturn.now;
+            console.log(NowJson)
             const Now_Tmp = NowJson.temp;
             const Now_FeelTmp = NowJson.feelsLike;
             const Now_text = NowJson.text;
