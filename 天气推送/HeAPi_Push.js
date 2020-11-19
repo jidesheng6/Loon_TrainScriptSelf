@@ -41,6 +41,8 @@ function GetWeatherInfo()
         const FullGetUrl = NowWeatherUrl + QueryPar;
         $httpClient.get(FullGetUrl,function(error,response,data)
         {
+            console.log(error);
+            console.log(data);
             let JsonReturn = JSON.parse(data);
             const NowJson = JsonReturn.now;
             console.log(NowJson)
