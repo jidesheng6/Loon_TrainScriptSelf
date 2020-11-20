@@ -229,14 +229,17 @@ function Get_DoubleSign()
 }
 if(Cookies!=undefined)
 {
-    async function AsyncFun()
+    /*async function AsyncFun()
     {
         Daily_Sign()//需要关闭模块请在最前面加上//即可
         await Gold_Rong();//金融任务
         Ten_Street_Beans()//需要关闭请在前面加上//
         await Get_DoubleSign();//领取双签奖励
-    }
-    (new Promise(Daily_Sign)).then(Gold_Rong).then(Get_DoubleSign).then(Ten_Street_Beans)
+    }*/
+    new Promise(Daily_Sign)
+    .then(Gold_Rong())
+    .then(Ten_Street_Beans())
+    setTimeout(Get_DoubleSign(),3000)
     //AsyncFun();
 }
 else
