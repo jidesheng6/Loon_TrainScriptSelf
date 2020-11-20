@@ -7,6 +7,7 @@ function GetCityLocalId(CityName)
     CityName = encodeURI(CityName);
     GetQueryPar = `location=${CityName}&key=${DevApiKey}`;
     let FullUrl = SearchCityUrl + GetQueryPar;
+    console.log(FullUrl);
     $httpClient.get(FullUrl,function(err,response,data)
     {
         var JsonObj = JSON.parse(data);
