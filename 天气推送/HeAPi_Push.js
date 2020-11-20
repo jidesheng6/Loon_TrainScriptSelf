@@ -39,6 +39,7 @@ function GetWeatherInfo()
         const LocaltionID = $persistentStore.read("id");
         const QueryPar = `location=${LocaltionID}&key=${DevApiKey}`;
         const FullGetUrl = NowWeatherUrl + QueryPar;
+        console.log(NowWeatherUrl);
         console.log(FullGetUrl);
         $httpClient.get(FullGetUrl,function(error,response,data)
         {
