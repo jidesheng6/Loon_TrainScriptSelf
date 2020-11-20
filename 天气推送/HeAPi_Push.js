@@ -13,7 +13,7 @@ function GetCityLocalId(CityName)
         console.log(data);
         var JsonObj = JSON.parse(data);
         const DataTree = JsonObj.location;
-        const LocationId = DataTree.id;
+        const LocationId = DataTree[0].id;
         const statusCode = JsonObj.code;
         console.log(data);
         if(statusCode!=200)
