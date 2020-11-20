@@ -14,6 +14,7 @@ function GetCityLocalId(CityName)
         const DataTree = JsonObj.location;
         const LocationId = DataTree.id;
         const statusCode = JsonObj.code;
+        console.log(data);
         if(statusCode!=200)
         {
             console.log("API出错,调试信息如下:\n"+data);
