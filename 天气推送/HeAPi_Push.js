@@ -30,6 +30,7 @@ console.log("死马APP喜欢搞心态是吧")
 function GetWeatherInfo()
 {
     const SearchCity=$persistentStore.read("NowLocation");
+    console.log(SearchCity);
     if(SearchCity==undefined)
     {
         $notification.post("获取位置信息失败","","请使用云闪付APP获取位置后重试");
