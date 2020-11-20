@@ -1,10 +1,9 @@
 function Get_JD_GenCookie()
 {
-    
+    const CookiePtKey_Index = Raw_Cookies.indexOf("pt_key");
     if(CookiePtKey_Index!=-1&&$request.url.indexOf("?functionId")==-1)
     {
         const Raw_Cookies = $request.headers["Cookie"];
-        const CookiePtKey_Index = Raw_Cookies.indexOf("pt_key");
         console.log($request.url);
         $persistentStore.write(Raw_Cookies,"Gen_Cookie_Key");
         $notification.post("狗东-获取Cookie成功","","狗东Cookie写入成功,需要复制请打开log日志进行复制");
