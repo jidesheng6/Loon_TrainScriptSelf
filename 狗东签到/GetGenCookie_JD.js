@@ -1,7 +1,7 @@
 function Get_JD_GenCookie()
 {
-    const CookiePtKey_Index = Raw_Cookies.indexOf("pt_key");
     const Raw_Cookies = $request.headers["Cookie"];
+    const CookiePtKey_Index = Raw_Cookies.indexOf("pt_key");
     if(CookiePtKey_Index!=-1&&$request.url.indexOf("functionId")==-1)
     {
         console.log($request.url);
