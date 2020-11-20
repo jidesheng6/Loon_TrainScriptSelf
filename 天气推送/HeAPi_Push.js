@@ -7,15 +7,13 @@ function GetCityLocalId(CityName)
     CityName = encodeURI(CityName);
     GetQueryPar = `location=${CityName}&key=${DevApiKey}`;
     let FullUrl = SearchCityUrl + GetQueryPar;
-    console.log(FullUrl);
     $httpClient.get(FullUrl,function(err,response,data)
     {
         console.log(data);
         var JsonObj = JSON.parse(data);
         const DataTree = JsonObj.location;
         const LocationId = DataTree[0].id;
-        const statusCode = JsonObj.code;
-        console.log(data);
+        const statusCode = JsonObj.code;     
         if(statusCode!=200)
         {
             console.log("API出错,调试信息如下:\n"+data);
@@ -24,12 +22,11 @@ function GetCityLocalId(CityName)
         {
             console.log("写入城市ID成功");
             $persistentStore.write(LocationId,"id");
-            console.log(LocationId);
+            
         }
         
     })
 }
-console.log("死马APP喜欢搞心态是吧")
 function GetWeatherInfo()
 {
     const SearchCity=$persistentStore.read("NowLocation");
@@ -44,15 +41,11 @@ function GetWeatherInfo()
         const LocaltionID = $persistentStore.read("id");
         const QueryPar = `location=${LocaltionID}&key=${DevApiKey}`;
         const FullGetUrl = NowWeatherUrl + QueryPar;
-        console.log(NowWeatherUrl);
-        console.log(FullGetUrl);
         $httpClient.get(FullGetUrl,function(error,response,data)
         {
-            console.log(error);
-            console.log(data);
+            
             let JsonReturn = JSON.parse(data);
             const NowJson = JsonReturn.now;
-            console.log(NowJson)
             const Now_Tmp = NowJson.temp;
             const Now_FeelTmp = NowJson.feelsLike;
             const Now_text = NowJson.text;
