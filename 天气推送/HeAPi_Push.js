@@ -21,6 +21,7 @@ function GetCityLocalId(CityName)
         {
             console.log("写入城市ID成功");
             $persistentStore.write(LocationId,"id");
+            console.log(LocationId);
         }
         
     })
