@@ -10,6 +10,7 @@ function GetCityLocalId(CityName)
     console.log(FullUrl);
     $httpClient.get(FullUrl,function(err,response,data)
     {
+        console.log(data);
         var JsonObj = JSON.parse(data);
         const DataTree = JsonObj.location;
         const LocationId = DataTree.id;
