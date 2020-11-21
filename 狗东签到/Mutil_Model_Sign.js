@@ -236,7 +236,7 @@ if(Cookies!=undefined)
         Ten_Street_Beans()//需要关闭请在前面加上//
         await Get_DoubleSign();//领取双签奖励
     }*/
-    new Promise(Daily_Sign).then(Get_DoubleSign());
+    new Promise(Daily_Sign).then(Get_DoubleSign);
     Gold_Rong();Ten_Street_Beans();
     //AsyncFun();
 }
