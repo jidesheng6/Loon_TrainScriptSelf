@@ -242,7 +242,7 @@ if(Cookies!=undefined)
         Gold_Rong();
         Ten_Street_Beans();
         resolve();
-        
+        console.log(this)
     })
     func.then(function(reslove,reject)
               {
