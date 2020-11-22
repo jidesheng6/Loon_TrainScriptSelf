@@ -161,10 +161,12 @@ function Gold_Rong()
                 case 0:
                     $notification.post("狗东金融-成功","狗东金融","任务成功");
                     Get_DoubleSign();
+                    
                     break;
                 case 15:
                     $notification.post("狗东金融-提示","狗东金融","请勿重复执行任务");
                      Get_DoubleSign();
+                    console.log("testaaaaaaaaaaaaaaaaaaaaaaaaa");
                     break;
                 default:
                     $notification.post("狗东金融-错误","未知错误","请联系作者")
