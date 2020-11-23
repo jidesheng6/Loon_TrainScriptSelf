@@ -34,6 +34,11 @@ function Lotty()//每日签到
             {
                 case "1":
                     $notification.post("京东-每日抽奖","","很抱歉没有中奖哦");
+                    break;
+                case "0":
+                    var PrizeName = InfoData.prizeName
+                    $notification.post("京东-每日抽奖","",`获得${PrizeName}`);
+                    break;
                 default:
                     $notification.post("京东-每日抽奖","","发生未定义的错误代码,请查看日志");
                     console.log(data);
