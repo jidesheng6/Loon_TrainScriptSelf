@@ -167,7 +167,8 @@ function Gold_Rong()
                     $notification.post("狗东金融-提示","狗东金融","请勿重复执行任务");
                     break;
                 default:
-                    $notification.post("狗东金融-错误","未知错误","请联系作者")
+                    $notification.post("狗东金融-错误","未知错误","请联系作者");
+                    console.log("狗东金融调试信息:"+data);
             }
 
         }
@@ -252,9 +253,12 @@ function Lotty()//每日抽奖
                 case "T215":
                     $notification.post("京东-每日抽奖","","今日抽奖次数已用光");
                     break;
+                case "T210":
+                     $notification.post("京东-每日抽奖","","请开启您的支付密码再试");
+                     break;
                 default:
                     $notification.post("京东-每日抽奖","","发生未定义错误,请查看Log日志");
-                    console.log(data);
+                    console.log("抽奖调试信息："+data);
             }
         }
         else
@@ -272,7 +276,7 @@ function Lotty()//每日抽奖
                     break;
                 default:
                     $notification.post("京东-每日抽奖","","发生未定义的错误代码,请查看日志");
-                    console.log(data);
+                    console.log("抽奖调试信息："+data);
             }
         }
 
