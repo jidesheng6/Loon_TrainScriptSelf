@@ -166,6 +166,9 @@ function Gold_Rong()
                 case 15:
                     $notification.post("狗东金融-提示","狗东金融","请勿重复执行任务");
                     break;
+                case 20:
+                    $notification.post("狗东金融-提示","狗东金融","请实名后再试");
+                    break;
                 default:
                     $notification.post("狗东金融-错误","未知错误","请联系作者");
                     console.log("狗东金融调试信息:"+data);
