@@ -251,6 +251,7 @@ function Lotty()//每日签到
             {
                 case "T215":
                     $notification.post("京东-每日抽奖","","今日抽奖次数已用光");
+                    console.log(data);
                     break;
                 default:
                     $notification.post("京东-每日抽奖","","发生未定义错误,请查看Log日志");
