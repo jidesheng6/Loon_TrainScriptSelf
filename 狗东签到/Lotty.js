@@ -1,4 +1,4 @@
-function Lotty()//每日签到
+function Lotty()//每日抽奖
 {
     const LottyUrl = 'https://api.m.jd.com/client.action?functionId=lotteryDraw&body=%7B%22actId%22%3A%22jgpqtzjhvaoym%22%2C%22appSource%22%3A%22jdhome%22%2C%22lotteryCode%22%3A%22wupll7s766xme4p63iqis3e5z2olgso5cosvj7bm5cszrxjcj5rpe4lg4ba6nhb6hiawzpccizuck%22%7D&appid=ld';
     const Cookie = $persistentStore.read("Gen_Cookie_Key");
@@ -21,9 +21,12 @@ function Lotty()//每日签到
                 case "T215":
                     $notification.post("京东-每日抽奖","","今日抽奖次数已用光");
                     break;
+                case "T210":
+                     $notification.post("京东-每日抽奖","","请开启您的支付密码再试");
+                     break;
                 default:
                     $notification.post("京东-每日抽奖","","发生未定义错误,请查看Log日志");
-                    console.log(data);
+                    console.log("抽奖调试信息："+data);
             }
         }
         else
@@ -41,7 +44,7 @@ function Lotty()//每日签到
                     break;
                 default:
                     $notification.post("京东-每日抽奖","","发生未定义的错误代码,请查看日志");
-                    console.log(data);
+                    console.log("抽奖调试信息："+data);
             }
         }
 
