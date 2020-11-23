@@ -29,12 +29,18 @@ function Gold_Rong()
             {
                 case 0:
                     $notification.post("狗东金融-成功","狗东金融","任务成功");
+                    Get_DoubleSign();
+                    
                     break;
                 case 15:
                     $notification.post("狗东金融-提示","狗东金融","请勿重复执行任务");
                     break;
+                case 20:
+                    $notification.post("狗东金融-提示","狗东金融","请实名后再试");
+                    break;
                 default:
-                    $notification.post("狗东金融-错误","未知错误","请联系作者")
+                    $notification.post("狗东金融-错误","未知错误","请联系作者");
+                    console.log("狗东金融调试信息:"+data);
             }
 
         }
