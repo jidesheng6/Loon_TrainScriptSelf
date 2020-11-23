@@ -229,7 +229,7 @@ function Get_DoubleSign()
         
     })
 }
-function Lotty()//每日签到
+function Lotty()//每日抽奖
 {
     const LottyUrl = 'https://api.m.jd.com/client.action?functionId=lotteryDraw&body=%7B%22actId%22%3A%22jgpqtzjhvaoym%22%2C%22appSource%22%3A%22jdhome%22%2C%22lotteryCode%22%3A%22wupll7s766xme4p63iqis3e5z2olgso5cosvj7bm5cszrxjcj5rpe4lg4ba6nhb6hiawzpccizuck%22%7D&appid=ld';
     const Cookie = $persistentStore.read("Gen_Cookie_Key");
@@ -251,7 +251,6 @@ function Lotty()//每日签到
             {
                 case "T215":
                     $notification.post("京东-每日抽奖","","今日抽奖次数已用光");
-                    console.log(data);
                     break;
                 default:
                     $notification.post("京东-每日抽奖","","发生未定义错误,请查看Log日志");
@@ -266,6 +265,11 @@ function Lotty()//每日签到
             {
                 case "1":
                     $notification.post("京东-每日抽奖","","很抱歉没有中奖哦");
+                    break;
+                case "0":
+                    var PrizeName = InfoData.prizeName
+                    $notification.post("京东-每日抽奖","",`获得${PrizeName}`);
+                    break;
                 default:
                     $notification.post("京东-每日抽奖","","发生未定义的错误代码,请查看日志");
                     console.log(data);
@@ -280,7 +284,6 @@ function Lotty()//每日签到
         
     })
 }
-
 if(Cookies!=undefined)
 {
     /*async function AsyncFun()
